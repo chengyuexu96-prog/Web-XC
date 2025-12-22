@@ -1,0 +1,496 @@
+/* ========================================= */
+/* ★ 明代御窑配色 (Imperial Red & Gold) ★ */
+/* ========================================= */
+:root {
+    --bg-paper: #F9F7F2;          /* 暖调宣纸 */
+    --ink-primary: #2C1616;       /* 深褐墨色 */
+    --ink-secondary: #5D4037;     /* 赭石色 */
+    --theme-color: #A62C2B;       /* 祭红 */
+    --theme-light: #D46A6A;
+    --accent-gold: #D4AF37;       /* 帝王金 */
+    --nav-bg: #1A0505;            /* 深红黑导航 */
+}
+
+body {
+    font-family: 'Noto Serif SC', serif;
+    background-color: var(--bg-paper);
+    color: var(--ink-primary);
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.05'/%3E%3C/svg%3E");
+    overflow-x: hidden;
+    /* cursor: none; */
+}
+
+
+h1, h2, h3, .brand-font {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-weight: normal;
+}
+
+/* --- 导航栏 --- */
+.navbar {
+    background-color: #000;
+    padding: 1rem 2rem;
+    transition: all 0.5s ease;
+    border-bottom: 3px solid #A62C2B !important;
+    width: 100%;
+}
+
+/* .navbar { background-color: #1A1A1A; border-bottom: 3px solid #78A3A2; padding: 1rem 2rem; } */
+.dropdown-item:hover {
+    background-color: #ccc !important;
+    color: #A62C2B !important;
+    display: block;
+}
+
+.dropdown-menu {
+    background-color: #fff !important;
+    border: 0.1px solid #A62C2B !important;
+}
+
+.dropdown-item {
+    color: rgba(0, 0, 0, 0.9) !important;
+    transition: 0.3s;
+}
+
+.dropdown-item.active {
+    background-color: #fcfbfa !important;
+    color: #000 !important; /* 黑色文字 */
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: #fff !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.822) !important;
+    font-size: 1.1rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #A62C2B !important;
+}
+
+/* --- 1. 封面 Hero --- */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('/media/china/明色釉背景.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    filter: contrast(1.1) brightness(0.8) sepia(0.2);
+    mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
+    z-index: 0;
+    animation: subtleMove 30s infinite alternate;
+}
+
+@keyframes subtleMove {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.ink-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(249, 247, 242, 0.8) 0%, rgba(249, 247, 242, 0.2) 60%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: 'Ma Shan Zheng';
+    font-size: 8rem;
+    color: var(--theme-color);
+    line-height: 1;
+    text-shadow: 20px 20px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* 关键：span 初始透明，等待 JS 触发 */
+.hero-title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--ink-secondary);
+    letter-spacing: 10px;
+    border-top: 1px solid var(--theme-color);
+    border-bottom: 1px solid var(--theme-color);
+    padding: 15px 40px;
+    margin-top: 20px;
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.royal-seal {
+    position: absolute;
+    top: -60px;
+    right: -40px;
+    width: 100px;
+    height: 100px;
+    border: 4px solid var(--theme-color);
+    color: var(--theme-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Ma Shan Zheng';
+    font-size: 1.8rem;
+    transform: rotate(-10deg);
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+}
+
+/* --- 2. 釉色炼金术 --- */
+.alchemy-section {
+    padding: 80px 0;
+    background: #7e0b0bce;
+    position: relative;
+}
+
+/* 使用 Grid 布局，自动适配列数：在宽屏时可出现三列 */
+.color-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    width: 100%;
+    justify-items: center;
+    margin-top: 80px;
+}
+
+.color-card {
+    width: 300px;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: 0.5s;
+    position: relative;
+    background: var(--bg-paper);
+}
+
+.color-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(166, 44, 43, 0.1);
+}
+
+.color-sample {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.sample-red {
+    background: url('/media/china/明红釉.png') center center / contain no-repeat;
+}
+
+.sample-white {
+    background: url('/media/china/明色釉甜白釉.png') center center / contain no-repeat;
+}
+
+.sample-yellow {
+    background: url('/media/china/明黄釉.png') center center / contain no-repeat;
+}
+
+.sample-blue {
+    background: url('/media/china/明色釉霁蓝釉.png') center center / contain no-repeat;
+}
+
+.sample-green {
+    background: url('/media/china/明青釉.png') center center / contain no-repeat;
+}
+
+.glaze-process {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    opacity: 0;
+    transition: 0.5s;
+    font-size: 0.9rem;
+}
+
+.color-sample:hover .glaze-process {
+    opacity: 1;
+    clip-path: circle(100%);
+}
+
+.chem-formula {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* --- 4. 宫廷美学 --- */
+.aesthetics-section {
+    padding: 120px 0;
+    background: #fff;
+}
+
+.aesthetic-card {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.aesthetic-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.aesthetic-img {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.aesthetic-text {
+    width: 50%;
+    padding: 40px;
+}
+
+.aesthetic-title {
+    font-size: 2.5rem;
+    color: var(--theme-color);
+    font-family: 'Ma Shan Zheng';
+    margin-bottom: 20px;
+}
+
+.vertical-line {
+    border-left: 3px solid var(--accent-gold);
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+/* --- 5. 显微镜 --- */
+.micro-section {
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    background: var(--bg-paper);
+}
+
+.micro-wrapper {
+    position: relative;
+    display: inline-block;
+    border: 10px solid #fff;
+    box-shadow: 0 30px 80px rgba(166, 44, 43, 0.1);
+    overflow: hidden;
+    cursor: crosshair;
+    width: 800px;
+    height: 500px;
+}
+
+.micro-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.1s;
+}
+
+.micro-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--theme-color);
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 50px;
+    pointer-events: none;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(166, 44, 43, 0.3);
+}
+
+.micro-wrapper:hover .micro-hint {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* --- 发展脉络 · 竖向时间线 --- */
+.timeline-section {
+    padding: 120px 0;
+    background: var(--bg-paper);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: rgba(166, 44, 43, 0.25);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 40px 60px;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 60px;
+    width: 16px;
+    height: 16px;
+    background: var(--theme-color);
+    border-radius: 50%;
+    border: 3px solid #fff;
+    z-index: 2;
+}
+
+.timeline-item.left .timeline-dot {
+    right: -8px;
+}
+
+.timeline-item.right .timeline-dot {
+    left: -8px;
+}
+
+.timeline-content {
+    padding: 25px;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.05);
+    transition: 0.4s;
+}
+
+.timeline-content img {
+    width: 50%;
+    object-fit: contain;
+    margin: 0 auto;
+    transition: 0.4s;
+}
+
+.timeline-content h3 {
+    font-family: 'Ma Shan Zheng';
+    color: var(--theme-color);
+    margin-bottom: 15px;
+}
+
+
+/* --- 通用 --- */
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    color: #000;
+}
+
+.section-header p {
+    letter-spacing: 4px;
+    color: var(--ink-secondary);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.reveal-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    background: #000;
+    color: #666;
+    padding: 60px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer h5 {
+    color: #fff;
+    font-family: 'Ma Shan Zheng';
+    margin-bottom: 20px;
+}
+
+footer a:hover {
+    color: var(--gold-primary);
+}
+
+.btn-outline-custom {
+    border: 2px solid #A62C2B;
+    color: #A62C2B;
+    border-radius: 50px;
+    padding: 5px 20px;
+    transition: 0.3s;
+}
+
+.btn-outline-custom:hover {
+    background: #A62C2B;
+    border-color: #A62C2B;
+    color: #fff;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元 · 青花 - 瓷韵中华</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/yuan.css">
+</head>
+    
+    <%- include('partials/header') %>
+
+    <header class="hero-section" data-cursor="VIEW">
+        <div class="bg-kanji">青花</div>
+        
+        <div class="hero-container">
+            <div class="hero-text reveal-up">
+                <h1 class="hero-title">
+                    元<br>
+                    &emsp;青 花
+                </h1>
+                <span class="hero-year">苍蓝舞银锋，大器载瀚海</span>
+                <p class="hero-desc">
+                    蒙古铁骑踏破疆界，亦融汇东西丹青。苏麻离青料自波斯远渡，遇中原白坯，始现青花旷世绝色：钴蓝沉如星夜，银斑渗若雪霰，笔锋遒劲处有草原烈马之奔腾，缠枝莲纹间藏丝路驼铃之回响。<br><br>
+元青花一改宋瓷含蓄，器型浑厚如梅瓶、大罐，纹饰繁密而不乱。牡丹怒放、海浪层叠、云龙逐日，皆绘于釉下，经烈焰定格为永恒。此乃帝国气度之昭彰——汪洋大港商船载它远航，世界方知“China”之名。其色苍茫如史诗，其纹磅礴如国书，在火光中铸就跨越文明的图腾。
+                </p>
+            </div>
+            <div class="hero-img-box">
+                <img src="/media/china/元青花罐.png" class="hero-img" alt="元青花大罐">
+            </div>
+        </div>
+    </header>
+
+    <section class="material-section">
+        <div class="blue-spread" style="top: -100px; right: -100px;"></div>
+        <div class="container">
+            <div class="material-grid">
+                <div class="map-visual reveal-up"></div> <div class="cobalt-card reveal-up" style="transition-delay: 0.2s;">
+                    <h2 class="chem-title">苏麻离青</h2>
+                    <p class="text-muted" style="line-height: 2;">
+                        元青花之所以独特，关键在于原料。<br>
+                        这种产自古代波斯地区的<span class="highlight-text">高铁低锰</span>钴料，沿丝绸之路传入中国。
+                    </p>
+                    <p class="text-muted" style="line-height: 2;">
+                        在1300℃的高温还原焰下，它呈现出浓艳深沉的宝石蓝。因含铁量高，烧成后常有黑色斑点，且有自然的晕散效果，如同水墨画一般。
+                    </p>
+                    <div class="mt-4">
+                        <span class="badge bg-secondary rounded-pill me-2">进口钴料</span>
+                        <span class="badge bg-secondary rounded-pill me-2">晕散</span>
+                        <span class="badge bg-secondary rounded-pill">吃胎</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rust-section">
+        <div class="container">
+            <div class="rust-container">
+                <div class="lens-wrapper" id="lens" data-cursor="ZOOM">
+                    <div class="lens-overlay">
+                        <i class="bi bi-search fs-1 mb-2"></i>
+                        <p>移动鼠标 · 寻找铁锈斑</p>
+                    </div>
+                </div>
+
+                <div class="rust-info reveal-up">
+                    <h2 class="rust-title">铁 锈 斑</h2>
+                    <p class="rust-desc">
+                        苏麻离青料中富含铁元素。当青花料堆积较厚时，烧制后会析出黑褐色的结晶斑点，表面下凹，在光线下侧视有锡光。
+                    </p>
+                    <p class="rust-desc mt-3">
+                        这是元青花无法模仿的DNA，被称为“铁锈斑”或“锡光斑”。
+                    </p>
+                    <div class="rust-tag">HEAPING & PILING</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shape-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>大 器 · 磅 礴</h2>
+                <p>THE MONUMENTAL FORMS</p>
+            </div>
+            
+            <div class="shape-scroll" id="shapeScroll" data-cursor="SCROLL">
+                <div class="shape-card">
+                    <img src="/media/china/元青花梅瓶.png" class="shape-icon">
+                    <div class="shape-name">梅 瓶</div>
+                    <div class="shape-use">Meiping Vase</div>
+                    <p class="small text-muted mt-2">口小颈短，肩丰底收。元代梅瓶造型硕大，常绘有人物故事。</p>
+                </div>
+                
+                <div class="shape-card">
+                    <img src="/media/china/元青花玉壶春.png" class="shape-icon">
+                    <div class="shape-name">玉壶春</div>
+                    <div class="shape-use">Yuhuchun Vase</div>
+                    <p class="small text-muted mt-2">颈部细长，腹部下垂。元代造型较宋代更为敦厚。</p>
+                </div>
+
+                <div class="shape-card">
+                    <img src="/media/china/元青花大盘.png" class="shape-icon" style="transform: scaleY(0.6);">
+                    <div class="shape-name">大 盘</div>
+                    <div class="shape-use">Large Plate</div>
+                    <p class="small text-muted mt-2">直径可达45cm以上，适应伊斯兰地区围坐共食的习惯。</p>
+                </div>
+
+                <div class="shape-card">
+                    <img src="/media/china/元青花大罐2.png" class="shape-icon">
+                    <div class="shape-name">大 罐</div>
+                    <div class="shape-use">Guan Jar</div>
+                    <p class="small text-muted mt-2">如“鬼谷子下山”罐，气势宏大，是元青花的代表作。</p>
+                </div>
+                
+                <div style="min-width: 50px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+
+    <script src="/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/yuan.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/css/header.css">
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
+    <div class="container-fluid">
+        <a class="navbar-brand brand-font" href="/">
+            瓷韵中华
+        </a>
+        <div id="nav-date-display" class="d-none d-lg-flex align-items-center ms-4 text-white-50" 
+            style="font-family: 'Noto Serif SC', serif; font-size: 0.85rem; user-select: none; letter-spacing: 1px;">
+            <i class="bi bi-hourglass-split me-2"></i>载入历法...
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="/index2">首页</a></li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">朝代 · 典藏</a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="/song">宋 · 青白</a></li>
+                        <li><a class="dropdown-item" href="/yuan">元 · 青花</a></li>
+                        <li><a class="dropdown-item" href="/ming">明 · 色釉</a></li>
+                        <li><a class="dropdown-item" href="/qing">清 · 粉彩</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="/resource">资源</a></li>
+                <li class="nav-item"><a class="nav-link" href="/community">社区</a></li>
+                <li class="nav-item"><a class="nav-link" href="/feedback">意见反馈</a></li>
+                
+                <li class="nav-item dropdown ms-3" id="auth-btn-container">
+                    <% if (user) { %>
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <% if (user.avatar && user.avatar.length > 5) { %>
+                                <img src="<%= user.avatar %>" class="nav-avatar">
+                            <% } else { %>
+                                <div class="nav-avatar-text"><%= user.username.charAt(0).toUpperCase() %></div>
+                            <% } %>
+                            <span><%= user.username %></span>
+                        </a>
+                
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/profile"><i class="bi bi-person me-2"></i>我的案头</a></li>
+                            <li><hr class="dropdown-divider" style="border-color:rgba(255,255,255,0.1)"></li>
+                            <li><a class="dropdown-item text-danger" href="/logout"><i class="bi bi-box-arrow-right me-2"></i>退隐山林</a></li>
+                        </ul>
+                    <% } else { %>
+                        <a class="btn btn-outline-custom rounded-pill px-4 btn-sm" href="/login">入 阁</a>
+                    <% } %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

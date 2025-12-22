@@ -1,0 +1,165 @@
+/* --- 全局黑金配色 (与首页保持一致) --- */
+:root {
+    --bg-deep: #141416;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --gold-primary: #BFA46F;
+    --text-main: #e0e0e0;
+    --text-sub: #888888;
+    --input-bg: rgba(0, 0, 0, 0.3);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Noto Serif SC', serif;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    overflow-x: hidden;
+
+    /* 关键修改：为顶部固定导航栏留出空间 */
+    padding-top: 76px;
+}
+
+h1, h2, h3, h4, .brand-font {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-weight: normal;
+}
+
+/* --- Page Header --- */
+.page-header {
+    padding: 120px 0 60px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(20, 20, 22, 1)), url('https://images.unsplash.com/photo-1584448074900-349c2343932e?q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    color: var(--gold-primary);
+    margin-bottom: 15px;
+}
+
+.page-desc {
+    color: var(--text-sub);
+    letter-spacing: 2px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- 布局容器 --- */
+.content-section {
+    padding: 60px 0 100px;
+}
+
+.section-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 40px;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.section-box:hover {
+    border-color: var(--gold-primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.box-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--gold-primary);
+    display: inline-block;
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+/* --- 左侧：手风琴 (FAQ) --- */
+.accordion-item {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-button {
+    background-color: transparent;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    padding: 20px 0;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--gold-primary);
+    background-color: transparent;
+}
+
+.accordion-button::after {
+    filter: invert(1) brightness(2); /* 箭头变白 */
+    transition: 0.3s;
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg); /* 展开时箭头变金 */
+}
+
+.accordion-body {
+    color: var(--text-sub);
+    padding: 0 0 20px 0;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* --- 右侧：表单 (Feedback) --- */
+.form-label {
+    color: var(--text-main);
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.form-control,
+.form-select {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    border-radius: 4px;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 10px rgba(191, 164, 111, 0.2);
+    color: #fff;
+}
+
+/* 提交按钮 */
+.btn-submit {
+    background: var(--gold-primary);
+    color: #000;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #d4b87f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(191, 164, 111, 0.3);
+}
+
+/* 成功状态 */
+.btn-success-custom {
+    background-color: #28a745 !important;
+    color: #fff !important;
+    border-color: #28a745 !important;
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
+}

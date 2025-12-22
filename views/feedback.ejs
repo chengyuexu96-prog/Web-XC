@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>意见反馈 - 瓷韵中华</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/feedback.css">
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">聆 听 · 回 声</h1>
+            <p class="page-desc">您的每一条建议，都是我们精进技艺的动力。在提问之前，或许下方已有您寻找的答案。</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="row g-5">
+                
+                <div class="col-lg-6">
+                    <div class="section-box">
+                        <h3 class="box-title">问 切 · 答 疑</h3>
+                        
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                                        <i class="bi bi-person-plus me-2"></i> 如何注册成为“雅客”会员？
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        点击导航栏右上角的“入阁”按钮，选择“注册”。填写您的手机号或邮箱，并设置密码即可。注册后您将拥有个人收藏夹，并可在社区发表评论。
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        <i class="bi bi-card-image me-2"></i> 为什么部分高清文物图片加载较慢？
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        为了呈现最极致的釉色细节，我们使用了博物馆级的超清大图（4K+）。这可能会受限于您的网络环境。建议您在 Wi-Fi 环境下浏览，耐心等待片刻，绝美细节值得等待。
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        <i class="bi bi-camera me-2"></i> 我可以投稿自己的藏品照片吗？
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        非常欢迎！请前往“社区交流”版块，发布帖子并附上您的藏品照片。经管理员审核确认为真品或高仿精品后，可能会被收录进“民间珍宝”栏目。
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                        <i class="bi bi-phone me-2"></i> 网站在手机上显示异常怎么办？
+                                    </button>
+                                </h2>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        我们已对主流移动设备进行了适配。如果遇到排版错乱，请尝试刷新页面或清除浏览器缓存。若问题依旧，请在右侧表单中选择“系统报错”，并注明您的手机型号。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="section-box">
+                        <h3 class="box-title">尺 素 · 传 情</h3>
+                        
+                        <form id="feedbackForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">姓 名</label>
+                                    <input type="text" class="form-control" id="name" placeholder="您的称呼" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">联 络</label>
+                                    <input type="email" class="form-control" id="email" placeholder="您的邮箱" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="type" class="form-label">类 别</label>
+                                <select class="form-select" id="type" required>
+                                    <option selected disabled value="">请选择反馈类型...</option>
+                                    <option value="suggestion">功能建议</option>
+                                    <option value="bug">系统报错</option>
+                                    <option value="content">内容勘误</option>
+                                    <option value="cooperation">商务合作</option>
+                                    <option value="other">其他</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="message" class="form-label">详 情</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="请详细描述您的建议或遇到的问题..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-submit" id="submitBtn">
+                                <i class="bi bi-send-fill me-2"></i> 投 递
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/common.js"></script>
+    <script src="/js/feedback.js"></script>
+</body>
+</html>

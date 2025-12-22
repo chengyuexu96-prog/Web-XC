@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瓷韵中华 - 东方美学 · 博物典藏</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/index2.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0">
+
+    <%- include('partials/header') %>
+
+    <!-- Hero -->
+    <section id="home">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- slide 1 -->
+        <div class="carousel-item active">
+          <video class="video-bg" autoplay loop muted playsinline>
+            <source src="media/video.mp4" type="video/mp4">
+          </video>
+          <div class="carousel-caption d-none d-md-block">
+            <div class="reveal-item">
+              <h1 class="hero-title">泥与火的史诗</h1>
+              <p class="lead">EPIC OF CLAY AND FIRE</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- slide 2 -->
+        <div class="carousel-item" style="background:url('media/picture2.png') center/cover no-repeat;">
+        </div>
+        <!-- slide 3 -->
+        <div class="carousel-item" style="background:url('media/picture1.png') center/cover no-repeat;">
+        </div>
+        <!-- slide 4 -->
+        <div class="carousel-item" style="background:url('media/picture3.png') center/cover no-repeat;">
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">上一张</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">下一张</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 巨幕 -->
+  <section id="quote" style="background:url('/media/picture6.jpg') center/cover no-repeat;">
+    <div class="container d-flex justify-content-center">
+      <div class="glass-card reveal-item">
+        <p class="quote-text">
+          中华优秀传统文化自古至今从未断流，<br>
+          陶瓷是中华瑰宝，<br>
+          是中华文明的重要名片。
+        </p>
+        <div class="quote-author">习近平总书记</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 屏风珍赏 -->
+  <section id="showcase" class="accordion-section reveal-item">
+    <div class="panel" onclick="window.location.href='Dynasty/song.html'">
+      <div class="panel-bg" style="background-image:url('/media/china/宋青白瓶.png');"></div>
+      <div class="vertical-text">宋青白</div>
+    </div>
+    <div class="panel" onclick="window.location.href='Dynasty/yuan.html'">
+      <div class="panel-bg" style="background-image:url('/media/china/元青花.png');"></div>
+      <div class="vertical-text">元青花</div>
+    </div>
+    <div class="panel" onclick="window.location.href='Dynasty/ming.html'">
+      <div class="panel-bg" style="background-image:url('media/china/明色釉.png');"></div>
+      <div class="vertical-text">明色釉</div>
+    </div>
+    <div class="panel" onclick="window.location.href='Dynasty/qing.html'">
+      <div class="panel-bg" style="background-image:url('/media/china/清粉彩瓶.png');"></div>
+      <div class="vertical-text">清粉彩</div>
+    </div>
+  </section>
+
+  <!-- 新闻 -->
+  <section id="categories" class="category-section">
+    <div class="container">
+      <div class="reveal-item">
+        <h2 class="section-title">新 闻 资 讯</h2>
+      </div>
+
+      <div class="row" id="newsCardsRow">
+        <!-- 新闻卡片通过 AJAX 动态加载 -->
+      </div>
+
+      <div class="text-center mt-5 reveal-item delay-3">
+        <button id="loadMoreBtn" class="btn btn-outline-gold px-5 mb-5">加载更多</button>
+      </div>
+    </div>
+    </section>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/common.js"></script>
+    <script src="/js/index2.js"></script>
+</body>
+</html>

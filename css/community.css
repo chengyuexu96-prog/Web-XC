@@ -1,0 +1,241 @@
+:root {
+    --bg-deep: #141416;
+    --gold-primary: #BFA46F;
+    --card-bg: #1e1e20;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: #e0e0e0;
+    font-family: 'Noto Serif SC';
+    overflow-x: hidden;
+    /* 1. 关键样式：避让固定导航栏 */
+    padding-top: 20px;
+}
+
+.site-info-bar {
+    background: rgba(191, 164, 111, 0.1);
+    border-bottom: 1px solid rgba(191, 164, 111, 0.2);
+    padding: 8px 0;
+    font-size: 0.85rem;
+    color: #aaa;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    /* 调整 top 值以适应 Header */
+    top: 76px;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* 瀑布流布局 */
+.masonry-container {
+    column-count: 2;
+    column-gap: 20px;
+    padding: 20px 0;
+}
+
+@media (min-width: 768px) {
+    .masonry-container {
+        column-count: 3;
+    }
+}
+
+.note-card {
+    break-inside: avoid;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.note-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-primary);
+}
+
+.note-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    min-height: 200px;
+    background: #222;
+}
+
+.note-info {
+    padding: 12px 16px;
+}
+
+.note-title {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.user-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* 详情模态框 */
+.modal-content {
+    background-color: #1a1a1c;
+    color: #fff;
+    border: 1px solid rgba(191, 164, 111, 0.3);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.modal-body {
+    padding: 0;
+    display: flex;
+    height: 85vh;
+}
+
+.modal-left {
+    width: 60%;
+    background: #0b0b0c;
+    position: relative;
+}
+
+.modal-right {
+    width: 40%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.author-header {
+    padding-right: 40px;
+    margin-bottom: 25px;
+}
+
+.post-content-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 15px;
+    margin-bottom: 20px;
+}
+
+.post-content-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.post-content-scroll::-webkit-scrollbar-thumb {
+    background: rgba(191, 164, 111, 0.2);
+    border-radius: 10px;
+}
+
+/* 互动栏 */
+.interaction-bar {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.inter-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+    color: #aaa;
+}
+
+.inter-item:hover {
+    color: var(--gold-primary);
+}
+
+.inter-item i {
+    font-size: 1.3rem;
+}
+
+.inter-item.active-like {
+    color: #ff4d4f;
+}
+
+.inter-item.active-fav {
+    color: var(--gold-primary);
+}
+
+.comment-box {
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comment-input {
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    font-size: 0.9rem;
+}
+
+/* 发帖悬浮按钮 */
+.fab-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4AF37, #BFA46F);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    z-index: 100;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.fab-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* 发帖模态框 */
+#publishModal .modal-content {
+    background: rgba(26, 26, 28, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(191, 164, 111, 0.3);
+    border-radius: 24px;
+    min-height: 550px;
+}
+
+.publish-form-control {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    padding: 12px !important;
+    border-radius: 12px !important;
+    margin-bottom: 15px;
+}
+
+.publish-form-control:focus {
+    border-color: var(--gold-primary) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+body:not(.modal-open) .modal-backdrop {
+    display: none !important;
+}

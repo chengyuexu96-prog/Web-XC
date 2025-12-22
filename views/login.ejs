@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入阁 · 登临 - 瓷韵中华</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <div class="login-wrapper">
+        <div class="auth-card">
+            <div class="text-center mb-4">
+                <h2 class="brand-font brand-title">瓷 韵</h2>
+                <p class="small text-muted brand-sub">Porcelain Era</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" onclick="switchTab('login')">登 临</div>
+                <div class="auth-tab" onclick="switchTab('register')">入 籍</div>
+            </div>
+
+            <div id="loginForm" class="form-section active">
+                <form onsubmit="handleLogin(event)">
+                    <div class="mb-3">
+                        <label class="input-label">账 号</label>
+                        <div class="input-group-custom">
+                            <i class="bi bi-person input-icon"></i>
+                            <input type="text" class="form-control" id="loginUser" placeholder="请输入您的用户名或电子邮箱">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="input-label">密 令</label>
+                        <div class="input-group-custom">
+                            <i class="bi bi-key input-icon"></i>
+                            <input type="password" class="form-control" id="loginPass" placeholder="请输入您的登录密码">
+                        </div>
+                    </div>
+
+                    <div class="helper-links">
+                        <label>
+                            <input type="checkbox"> 记住我
+                        </label>
+                        <a href="#">忘记密令?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit" id="btnLogin">开 启 瓷 门</button>
+                </form>
+            </div>
+
+            <div id="registerForm" class="form-section">
+                <form onsubmit="handleRegister(event)">
+                    <div class="mb-3">
+                        <label class="input-label">用 户 名</label>
+                        <div class="input-group-custom">
+                            <i class="bi bi-pencil-square input-icon"></i>
+                            <input type="text" class="form-control" id="regUser" placeholder="取个好听的名字 (2-10字)">
+                            <div class="invalid-feedback">长度需在 2 到 10 个字符之间</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="input-label">联 络 (邮箱)</label>
+                        <div class="input-group-custom">
+                            <i class="bi bi-envelope input-icon"></i>
+                            <input type="email" class="form-control" id="regEmail" placeholder="用于找回密码">
+                            <div class="invalid-feedback">请输入有效的电子邮箱地址</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="input-label">设 置 密 令</label>
+                        <div class="input-group-custom">
+                            <i class="bi bi-lock input-icon"></i>
+                            <input type="password" class="form-control" id="regPass" placeholder="至少 6 位字符">
+                            <div class="invalid-feedback">密码长度太短，至少需要 6 位</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit" id="btnReg" disabled>成 为 瓷 客</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/common.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+</html>

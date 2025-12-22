@@ -1,0 +1,438 @@
+/* ========================================= */
+/* ★ 苍蓝配色 (Cobalt Epic) ★ */
+/* ========================================= */
+:root {
+    /* 背景：冷调青白釉 (Cool Glaze White) */
+    --bg-glaze: #F0F4F8;
+    --bg-deep: #0D1B2A; /* 深海蓝黑 */
+
+    /* 文字：苏麻离青 (Sumali Cobalt) */
+    --ink-cobalt: #10316B;
+    --ink-rust: #8B4513; /* 铁锈斑色 */
+    --text-grey: #586B85;
+
+    /* 强调色 */
+    --accent-blue: #2B579A;
+
+    --nav-bg: rgba(240, 244, 248, 0.9);
+}
+
+body {
+    font-family: 'Noto Serif SC', serif;
+    background-color: var(--bg-glaze);
+    color: var(--ink-cobalt);
+    /* 冰裂纹肌理 */
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    overflow-x: hidden;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+.brand-font {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-weight: normal;
+}
+
+/* 自定义光标：深蓝墨点 */
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background: var(--ink-cobalt);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+}
+
+#cursor.hovered {
+    transform: translate(-50%, -50%) scale(4);
+    background: rgba(16, 49, 107, 0.2);
+}
+
+/* --- 导航栏 (沉稳黑底) --- */
+
+.navbar {
+    background-color: #000;
+    padding: 1rem 2rem;
+    transition: all 0.5s ease;
+    border-bottom: 3px solid #0D1B2A !important;
+    width: 100%;
+}
+
+/* .navbar { background-color: #1A1A1A; border-bottom: 3px solid #78A3A2; padding: 1rem 2rem; } */
+.dropdown-item:hover {
+    background-color: #ccc !important;
+    color: #0D1B2A !important;
+    display: block;
+}
+
+.dropdown-menu {
+    background-color: #fff !important;
+    border: 0.1px solid #0D1B2A !important;
+}
+
+.dropdown-item {
+    color: rgba(0, 0, 0, 0.9) !important;
+    transition: 0.3s;
+}
+
+.dropdown-item.active {
+    background-color: #fcfbfa !important;
+    color: #000 !important; /* 黑色文字 */
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: #fff !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.822) !important;
+    font-size: 1.1rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #0D1B2A !important;
+}
+
+/* --- 1. 封面 Hero (苍劲有力) --- */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 背景大字 (Decor) */
+.bg-kanji {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Ma Shan Zheng';
+    font-size: 35vw;
+    color: rgba(16, 49, 107, 0.03);
+    pointer-events: none;
+    z-index: 0;
+    white-space: nowrap;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    width: 85%;
+    height: 80%;
+    z-index: 2;
+    align-items: center;
+}
+
+/* 左侧：文字碑刻 */
+.hero-text {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    width: 100%;
+    padding-left: 8%;
+}
+
+.hero-year {
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    color: var(--ink-rust);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+    border-top: 2px solid var(--ink-rust);
+    display: inline-block;
+    padding-top: 5px;
+}
+
+.hero-title {
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--ink-cobalt);
+    margin-bottom: 30px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--text-grey);
+    max-width: 500px;
+    text-align: justify;
+}
+
+/* 右侧：器物剪影 */
+.hero-img-box {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-img {
+    max-height: 85vh;
+    width: auto;
+    transform: scale(0.9);
+    opacity: 0;
+    animation: scaleIn 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards 0.3s;
+}
+
+@keyframes scaleIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* --- 2. 核心材料：苏麻离青 (Sumali Blue) --- */
+.material-section {
+    padding: 120px 0;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.blue-spread {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16, 49, 107, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(50px);
+}
+
+.material-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: stretch;
+    position: relative;
+    z-index: 1;
+}
+
+.cobalt-card {
+    background: var(--bg-glaze);
+    padding: 50px;
+    border-left: 5px solid var(--ink-cobalt);
+    box-shadow: 20px 20px 0 rgba(16, 49, 107, 0.05);
+    transition: 0.3s;
+}
+
+.cobalt-card:hover {
+    transform: translateX(10px);
+    box-shadow: 25px 25px 0 rgba(16, 49, 107, 0.1);
+}
+
+.chem-title {
+    font-size: 2.5rem;
+    color: var(--ink-cobalt);
+    margin-bottom: 20px;
+    font-family: 'Ma Shan Zheng';
+}
+
+.highlight-text {
+    color: var(--ink-rust);
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.map-visual {
+    width: 100%;
+    height: 100%;
+    background: url('/media/china/苏麻离青.png') center center / cover no-repeat;
+    /* 恢复原色显示，移除黑白与蒙版 */
+    filter: none;
+    mix-blend-mode: normal;
+    opacity: 1;
+    mask-image: none;
+    -webkit-mask-image: none;
+    align-self: stretch;
+}
+
+/* --- 3. 鉴定交互：铁锈斑 (Heaping and Piling) --- */
+.rust-section {
+    padding: 120px 0;
+    background: var(--bg-deep);
+    color: #fff;
+    position: relative;
+}
+
+.rust-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 放大镜交互区 */
+.lens-wrapper {
+    width: 500px;
+    height: 500px;
+    margin-right: 100px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    cursor: crosshair;
+    flex-shrink: 0;
+    background-image: url('/media/china/元青花大罐2.png');
+    background-size: 100%;
+    background-position: center;
+    transition: background-size 0.2s;
+}
+
+.lens-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.lens-wrapper:hover .lens-overlay {
+    opacity: 0;
+}
+
+.rust-info {
+    max-width: 400px;
+}
+
+.rust-title {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Ma Shan Zheng';
+}
+
+.rust-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.rust-tag {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid var(--ink-rust);
+    color: var(--ink-rust);
+    margin-top: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+/* --- 4. 器型大观 (Silhouettes) --- */
+.shape-section {
+    padding: 120px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    color: var(--ink-cobalt);
+    font-family: 'Ma Shan Zheng';
+}
+
+.shape-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 5%;
+    gap: 60px;
+    scroll-behavior: smooth;
+}
+
+.shape-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.shape-scroll::-webkit-scrollbar-thumb {
+    background: var(--ink-cobalt);
+}
+
+.shape-card {
+    min-width: 400px;
+    text-align: center;
+    opacity: 0.6;
+    transition: 0.5s;
+    border-right: 1px solid rgba(16, 49, 107, 0.1);
+    padding-right: 60px;
+}
+
+.shape-card:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* 纯黑色剪影，Hover变蓝 */
+.shape-icon {
+    height: 300px;
+    width: auto;
+    margin-bottom: 30px;
+    filter: brightness(0) opacity(0.8);
+    transition: 0.5s;
+}
+
+.shape-card:hover .shape-icon {
+    filter: brightness(1) saturate(1.5);
+} /* 变蓝 */
+
+.shape-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.shape-use {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    background: var(--bg-deep);
+    padding: 80px 0;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+footer h2 {
+    color: #fff;
+    font-family: 'Ma Shan Zheng';
+    margin-bottom: 20px;
+}
+
+/* Animation */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}

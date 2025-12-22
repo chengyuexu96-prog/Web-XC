@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>瓷 - Intro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Courier+New&family=Francois+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/intro.css">
+
+    <!-- Three.js CDN（也可以换本地文件） -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+    <!-- GSAP 用于控制收缩和黑屏动画 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<canvas id="galaxy"></canvas>
+
+<div class="center-text noir-font">
+    
+    <h1>瓷</h1>
+    <h3>CHINA</h3>
+    <h2>INTANGIBLE CULTURAL HERITAGE</h2>
+    
+</div>
+
+<div id="black-screen"></div>
+
+<!-- 粒子系统逻辑 -->
+<script src="/js/galaxy.js"></script>
+
+<!-- 收缩 + 黑屏 + 跳转逻辑 -->
+<script src="/js/transition.js"></script>
+
+</body>
+</html>

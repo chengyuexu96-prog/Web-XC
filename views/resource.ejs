@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>藏经阁 · 社区 - 瓷韵中华</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/resource.css">
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <header class="page-header">
+        <div class="container relative z-2">
+            <h2 class="brand-font" style="color: var(--gold-primary);">
+                精选视频
+            </h2>
+            <p class="text-white-50 small" style="letter-spacing: 3px;">
+                FEATURED VIDEOS
+            </p>
+        </div>
+    </header>
+    
+
+    <div class="video-section">
+        
+        <div class="container-fluid">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <iframe
+                        src="//player.bilibili.com/player.html?bvid=BV1Wv4y1F7hL&page=1&high_quality=1&danmaku=0"
+                        width="100%"
+                        height="500"
+                        frameborder="0"
+                        scrolling="no"
+                        allowfullscreen="allowfullscreen"
+                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">
+                        </iframe>
+                        <div class="video-caption">
+                            <h3 class="brand-font text-white">“空明流光：宋瓷•五大名窑”特展宣传片</h3>
+                           
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <iframe
+                        src="//player.bilibili.com/player.html?bvid=BV13F4m1g7jg&page=1&high_quality=1&danmaku=0"
+                        width="100%"
+                        height="500"
+                        frameborder="0"
+                        scrolling="no"
+                        allowfullscreen="allowfullscreen"
+                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">
+                        </iframe>
+                        <div class="video-caption">
+                            <h3 class="brand-font text-white">《如果国宝会说话第四季》宋瓷</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <iframe
+                        src="//player.bilibili.com/player.html?bvid=BV1jm84zcExE&page=1&high_quality=1&danmaku=0"
+                        width="100%"
+                        height="500"
+                        frameborder="0"
+                        scrolling="no"
+                        allowfullscreen="allowfullscreen"
+                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">
+                        </iframe>
+                        <div class="video-caption">
+                            <h3 class="brand-font text-white">这个杯子浑身是孔，却滴水不漏</h3>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next custom-swiper-button-next"></div>
+                <div class="swiper-button-prev custom-swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>  
+        
+        <div class="text-center mt-5 mb-4">
+            <h2 class="brand-font" style="color: var(--gold-primary)">
+                相关纪录片和书籍
+            </h2>
+        </div>
+        
+        <div class="row justify-content-center search-wrapper">
+            <div class="col-md-8 col-lg-7">
+                <div class="search-bar-custom">
+                    <div class="search-icon-box">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <input type="text" id="searchInput" class="search-input-custom" 
+                           placeholder="输入书名，寻觅陶瓷真知..." 
+                           onkeypress="if(event.keyCode==13) loadResources()">
+                    <button class="search-btn-custom" type="button" onclick="loadResources()">
+                        寻 觅
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="book-container" class="magazine">
+            <div class="resource-card">
+                <div class="resource-poster-box">
+                    <a href="http://www.docuchina.cn/2018/10/16/VIDA1Ko0dtfBFKJ6i0xnMy8O181016.shtml" target="_blank">
+                        <img src="media/纪录片/手造中国.jpeg" class="resource-poster" alt="手造中国">
+                    </a>
+                </div>
+                <h5 class="resource-title">手造中国</h5>
+                <p class="resource-desc">该片历时三年深入景德镇，采用高速高清多方位拍摄技术，记录百余位手工瓷匠人的制瓷工序，涵盖原料开采到烧制成瓷的全流程。</p>
+                <a href="http://www.docuchina.cn/2018/10/16/VIDA1Ko0dtfBFKJ6i0xnMy8O181016.shtml" target="_blank" class="small text-decoration-none" style="color: var(--gold-primary);">查看详情 <i class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-poster-box">
+                    <a href="http://www.docuchina.cn/2023/01/30/VIDAb1yacejXYGjbeWbZLyGJ230130.shtml" target="_blank">
+                        <img src="media/纪录片/我是你的瓷儿.jpeg" class="resource-poster" alt="我是你的瓷儿">
+                    </a>
+                </div>
+                <h5 class="resource-title">我是你的瓷儿</h5>
+                <p class="resource-desc">该片以景德镇为背景，围绕中国手工瓷装饰技艺发展史展开，通过单色釉、青花、斗彩、五彩及现代创新装饰等工艺演变，展现瓷器美学与匠人传承故事。</p>
+                <a href="http://www.docuchina.cn/2023/01/30/VIDAb1yacejXYGjbeWbZLyGJ230130.shtml" target="_blank" class="small text-decoration-none" style="color: var(--gold-primary);">查看详情 <i class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-poster-box">
+                    <a href="https://tv.cctv.com/2012/12/06/VIDA1354775079671718.shtml" target="_blank">
+                        <img src="media/纪录片/China瓷.jpeg" class="resource-poster" alt="china·瓷">
+                    </a>
+                </div>
+                <h5 class="resource-title">China·瓷</h5>
+                <p class="resource-desc">影片通过明清时期三亿件外销瓷的海洋贸易轨迹，探讨瓷器作为首件全球化商品如何连接欧亚大陆。</p>
+                <a href="https://tv.cctv.com/2012/12/06/VIDA1354775079671718.shtml" target="_blank" class="small text-decoration-none" style="color: var(--gold-primary);">查看详情 <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+
+
+        <div class="submission-area">
+            <h4 class="text-center brand-font mb-4" style="color: var(--gold-primary); font-size: 2rem;">
+                <i class="bi bi-plus-square"></i> 荐 书 · 上 架
+            </h4>
+            <p class="text-center text-muted mb-5">如果您读过关于陶瓷的精彩书籍，欢迎将其收录进藏经阁，与万千雅客共享。</p>
+            
+            <form id="resourceForm" onsubmit="handleUpload(event)">
+                <input type="hidden" name="type" value="book">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-white">书名 / Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="例如：《中国青花瓷纹饰图典》" required>
+                        <div class="form-text">请填写书籍的完整官方名称，不需要加书名号。</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-white">详情链接 / URL</label>
+                        <input type="url" class="form-control" name="link_url" placeholder="例如：https://book.douban.com/..." required>
+                        <div class="form-text">请粘贴豆瓣读书页面、京东/当当的书籍详情页链接。</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label text-white">书籍封面 / Cover Image</label>
+                        <input type="file" class="form-control" name="poster" accept="image/*" required>
+                        <div class="form-text">支持 JPG, PNG 格式。建议上传清晰的竖版封面图。</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label text-white">推荐理由 / Description</label>
+                        <textarea class="form-control" name="description" rows="4" placeholder="简要介绍这本书的内容亮点..." required></textarea>
+                        <div class="form-text">20-200字即可。</div>
+                    </div>
+                    <div class="col-12 text-center mt-4">
+                        <button type="submit" class="btn px-5 py-2 rounded-pill fw-bold" style="background-color: var(--gold-primary); color: #000;">
+                            <i class="bi bi-upload me-2"></i>提 交 收 录
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <%- include('partials/footer') %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="/common.js"></script>
+    <script src="/js/resource.js"></script>
+</body>
+</html>

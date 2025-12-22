@@ -1,0 +1,48 @@
+    /* === 全局粘性页脚修复 (Sticky Footer) === */
+    /* 这段 CSS 将 body 变为 Flex 容器，并强制高度至少为屏幕高度。
+       配合 footer 的 margin-top: auto，实现内容少时页脚沉底，内容多时随页面滚动。
+    */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+    /* 页脚样式 */
+footer {
+    background: linear-gradient(to bottom, #1a1a1c, #000);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 40px 0 20px;
+    border-top: 1px solid rgba(191, 164, 111, 0.2);
+    font-family: 'Noto Serif SC', serif;
+    
+    /* 关键：自动占据上方剩余空间，把自己推到最底部 */
+    margin-top: auto;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+}
+
+footer h5 {
+    color: #BFA46F;
+    font-family: 'Ma Shan Zheng';
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+footer a:hover {
+    color: #BFA46F;
+    padding-left: 5px; /* 悬停小位移特效 */
+}
+
+footer .small {
+    font-size: 0.85rem;
+}

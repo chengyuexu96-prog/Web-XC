@@ -1,0 +1,97 @@
+/* ==================================== */
+/* ★ 导航栏统一风格 (纯黑 + 金线) ★ */
+/* ==================================== */
+    
+/* 1. 导航栏容器 */
+.navbar {
+    background-color: #000; /* 默认纯黑背景 */
+    padding: 0.5rem 2rem;
+    transition: all 0.5s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.05); /* 默认微弱边框 */
+    width: 100%;
+    backdrop-filter: blur(10px); /* 磨砂效果 */
+}
+    
+/* 2. 滚动后的状态 (Common.js 控制) */
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.95) !important; /* 加深背景 */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(191, 164, 111, 0.3) !important; /* 滚动出现明显金线 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+    
+/* 3. 下拉菜单 (黑金风格) */
+.dropdown-menu-dark { 
+    background-color: rgba(0, 0, 0, 0.95); 
+    border: 1px solid #BFA46F; /* 金色边框 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+.dropdown-item { 
+    color: rgba(255,255,255,0.8); 
+    transition: 0.3s;
+    padding: 10px 20px;
+}
+.dropdown-item:hover { 
+    background-color: #BFA46F; /* 悬停变金 */
+    color: #000; 
+}
+
+/* 4. 品牌与链接 */
+.navbar-brand { 
+    font-size: 1.8rem; 
+    color: #fff !important; 
+    font-family: 'Ma Shan Zheng';
+}
+.nav-link { 
+    color: rgba(255,255,255,0.6) !important; 
+    font-size: 1.1rem; 
+    margin: 0 10px; 
+    transition: 0.3s; 
+}
+.nav-link:hover, .nav-link.active { color: #BFA46F !important; }
+    
+/* 5. 按钮样式 (入阁) */
+.btn-outline-custom {
+    border: 2px solid #BFA46F; 
+    color: #BFA46F; 
+    border-radius: 50px; 
+    padding: 5px 20px; 
+    transition: 0.3s;
+}
+.btn-outline-custom:hover { 
+    background: #BFA46F; 
+    color: #000; 
+    box-shadow: 0 0 15px rgba(191, 164, 111, 0.4);
+}
+
+/* 6. 头像样式 */
+.nav-avatar { 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 1px solid #BFA46F; 
+}
+.nav-avatar-text { 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    background: #BFA46F; 
+    color: #000; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold; 
+}
+
+/* 7. 鼠标悬停自动打开下拉菜单 (PC端) */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        animation: fadeInUp 0.3s ease forwards;
+    }
+}
+@keyframes fadeInUp { from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+} to { opacity: 1; transform: translateY(0); } }

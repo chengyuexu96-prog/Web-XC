@@ -1,0 +1,360 @@
+:root {
+    /* 背景：宣纸/旧书页色，温润护眼 */
+    --bg-paper: #c6d8d8;
+    --bg-paper-dark: #B1D5C8;
+    --bg-paper-2: #70a0a1cf;
+
+    /* 文字：松烟墨色 (非纯黑，带暖调) */
+    --ink-dark: #2B2B2B;
+    --ink-light: #595959;
+
+    /* 主题色：天青 (宋代代表色) */
+    --theme-color: #edf0f3;
+    /* 点缀：朱砂 (印章色) */
+    --accent-red: #B23628;
+
+    /* 导航栏背景 (深墨色) */
+    --nav-bg: #1A1A1A;
+}
+
+body {
+    font-family: 'Noto Serif SC', serif; /* 全局宋体，书卷气核心 */
+    background-color: var(--bg-paper);
+    color: var(--ink-dark);
+    /* 叠加纸张纹理 */
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.08'/%3E%3C/svg%3E");
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.brand-font {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-weight: normal;
+}
+
+/* --- 1. 导航栏 (沉稳黑底) --- */
+
+.navbar {
+    background-color: #000 !important;
+    padding: 1rem 2rem;
+    transition: all 0.5s ease;
+    border-bottom: 3px solid #78A3A2 !important;
+    width: 100%;
+}
+
+.dropdown-menu {
+    background: #fff !important;
+    border: 0.1px solid #78A3A2 !important;
+}
+
+.dropdown-item {
+    color: rgba(0, 0, 0, 0.9) !important;
+    transition: 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #ccc !important;
+    color: #78A3A2 !important;
+}
+
+.dropdown-item.active {
+    background-color: #fcfbfa !important;
+    color: #000 !important; /* 黑色文字 */
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: #fff !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.822) !important;
+    font-size: 1.1rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #78A3A2 !important;
+}
+
+
+/* --- 2. 封面 (Hero) - 留白式排版 --- */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-paper);
+    overflow: hidden;
+}
+
+/* 背景图：只作为氛围，不铺满，像挂画 */
+.hero-img-box {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    width: 50%;
+    height: 80%;
+    background-image: url('/media/china/宋青白碗2.png'); /* 宋瓷特写 */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    mask-image: linear-gradient(to left, black 0%, transparent 100%); /* 图片边缘渐变消失 */
+    -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    width: 100%;
+    padding-left: 2%;
+}
+
+.hero-stamp {
+    border: 2px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 5px 15px;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Ma Shan Zheng';
+}
+
+.hero-title {
+    font-size: 6rem;
+    color: var(--ink-dark);
+    margin-bottom: 10px;
+    letter-spacing: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--theme-color);
+    border-top: 1px solid var(--ink-dark);
+    padding-top: 20px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    color: var(--ink-dark);
+}
+
+.section-header p {
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* --- 发展脉络 · 竖向时间线 --- */
+.timeline-section {
+    padding: 120px 0;
+    background: var(--bg-paper-2);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: var(--theme-color);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 40px 60px;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 60px;
+    width: 16px;
+    height: 16px;
+    background: var(--theme-color);
+    border-radius: 50%;
+    border: 3px solid #fff;
+    z-index: 2;
+}
+
+.timeline-item.left .timeline-dot {
+    right: -8px;
+}
+
+.timeline-item.right .timeline-dot {
+    left: -8px;
+}
+
+.timeline-content {
+    padding: 25px;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.05);
+    transition: 0.4s;
+}
+
+.timeline-content img {
+    width: 50%;
+    object-fit: contain;
+    margin: 0 auto;
+    transition: 0.4s;
+}
+
+.timeline-content h3 {
+    font-family: 'Ma Shan Zheng';
+    color: var(--theme-color);
+    margin-bottom: 15px;
+}
+
+/* 引用块 */
+.quote-box {
+    background: #fff;
+    padding: 30px;
+    border-left: 5px solid var(--accent-red);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.05); /* 纸质阴影 */
+    margin: 40px 0;
+    font-style: italic;
+    color: var(--ink-dark);
+}
+
+/* --- 4. 工艺交互 (Interactive Craft) --- */
+.craft-section {
+    background-color: var(--bg-paper-dark);
+    padding: 100px 0;
+}
+
+.craft-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.craft-card {
+    background: #fff;
+    padding: 40px;
+    transition: 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: default;
+}
+
+.craft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.craft-icon {
+    font-size: 2.5rem;
+    color: var(--theme-color);
+    margin-bottom: 20px;
+}
+
+.craft-step {
+    font-size: 0.9rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.craft-title {
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+/* 交互：鼠标悬停显示隐藏知识 */
+.hidden-tip {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    color: var(--accent-red);
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+.craft-card:hover .hidden-tip {
+    height: auto;
+    opacity: 1;
+}
+
+/* --- 5. 显微镜交互 (Microscope) --- */
+.micro-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.micro-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border: 10px solid #fff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+/* 放大镜效果 */
+.zoom-img {
+    width: 100%;
+    transition: transform 0.2s;
+    display: block;
+}
+
+/* 提示层 */
+.interact-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.micro-container:hover .interact-hint {
+    opacity: 0;
+}
+
+/* --- 动画 --- */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s ease;
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
